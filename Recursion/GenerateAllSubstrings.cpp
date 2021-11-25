@@ -55,23 +55,18 @@ void parray(int a[],int n){
     }
     cout<<endl;
 }
-string gas(string ip){
-
+void gas(string ip,string ans){
     if(ip.length()==0)
     {
-        return "";
+        cout<<ans<<endl;
+        return;
     }
 
 
-      char ch=ip[0];
+    gas(ip.substr(1),ans);
+    gas(ip.substr(1),ans+ip[0]);
 
-        string ros=ip.substr(1);
-         
-         cout<<" "+ros<<endl;
-         return gas(ros);
-         cout<<ch+ros<<endl;
-         return gas(ch+ros);
-         
+
           
 
 }
@@ -88,7 +83,7 @@ int main()
         string ip;
         cin>>ip;
 
-        gas(ip);
+        gas(ip,"");
     }
     return 0;
 }
